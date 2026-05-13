@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import { Heart, X, MessageCircle, Flame, LogOut } from 'lucide-react'
+import { MessageCircle, User, LogOut, Flame, Star, X } from 'lucide-react'
 import ProfileCard from '../components/ProfileCard'
+import MessagesPage from './MessagesPage'
+import ProfilePage from './ProfilePage'
 import './HomePage.css'
 
 interface HomePageProps {
@@ -57,11 +59,12 @@ const mockProfiles = [
 ]
 
 export default function HomePage({ currentUser, onLogout }: HomePageProps) {
+  const [activeTab, setActiveTab] = useState<'discover' | 'messages' | 'profile'>('discover')
   const [profiles, setProfiles] = useState(mockProfiles)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [matches, setMatches] = useState<any[]>([])
 
-  const handleLike = () => {
+  const handleConnect = () => {
     setMatches([...matches, profiles[currentIndex]])
     handleNext()
   }
@@ -82,77 +85,100 @@ export default function HomePage({ currentUser, onLogout }: HomePageProps) {
       <header className="header">
         <div className="header-left">
           <div className="logo">
-            <Flame size={24} fill="currentColor" />
+            <Flame size={24} />
             <span>baFive</span>
           </div>
         </div>
 
         <div className="header-center">
           <nav className="nav-tabs">
-            <button className="nav-tab active">
-              <Heart size={20} />
+            <button
+              className={`nav-tab ${activeTab === 'discover' ? 'active' : ''}`}
+              onClick={() => setActiveTab('discover')}
+              title="Discover colleagues"
+            >
+              <Flame size={20} />
               Discover
             </button>
-            <button className="nav-tab">
+            <button
+              className={`nav-tab ${activeTab === 'messages' ? 'active' : ''}`}
+              onClick={() => setActiveTab('messages')}
+              title="Messages"
+            >
               <MessageCircle size={20} />
               Messages
+            </button>
+            <button
+              className={`nav-tab ${activeTab === 'profile' ? 'active' : ''}`}
+              onClick={() => setActiveTab('profile')}
+              title="Your profile"
+            >
+              <User size={20} />
+              Profile
             </button>
           </nav>
         </div>
 
         <div className="header-right">
-          <div className="user-menu">
-            <img src={currentUser.profileImage} alt={currentUser.name} className="user-avatar" />
-            <button onClick={onLogout} className="logout-btn">
-              <LogOut size={20} />
-            </button>
-          </div>
+          <button onClick={onLogout} className="logout-btn" title="Logout">
+            <LogOut size={20} />
+          </button>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="main-content">
-        {/* Sidebar */}
-        <aside className="sidebar">
-          <div className="matches-section">
-            <h3>Liked by</h3>
-            <div className="matches-list">
-              {matches.length === 0 ? (
-                <p className="no-matches">Start liking profiles to see your matches!</p>
-              ) : (
-                matches.map((match) => (
-                  <div key={match.id} className="match-item">
-                    <img src={match.image} alt={match.name} />
-                    <span>{match.name}</span>
-                  </div>
-                ))
+        {activeTab === 'discover' && (
+          <>
+            {/* Connections Sidebar */}
+            <aside className="sidebar">
+              <div className="matches-section">
+                <h3>⭐ Connections</h3>
+                <div className="matches-list">
+                  {matches.length === 0 ? (
+                    <p className="no-matches">Connect with colleagues you're interested in!</p>
+                  ) : (
+                    matches.map((match) => (
+                      <div key={match.id} className="match-item">
+                        <img src={match.image} alt={match.name} />
+                        <div className="match-info">
+                          <span className="match-name">{match.name}</span>
+                          <span className="match-dept">{match.department}</span>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            </aside>
+
+            {/* Card Stack */}
+            <section className="card-section">
+              {currentProfile && (
+                <ProfileCard
+                  profile={currentProfile}
+                  onConnect={handleConnect}
+                  onPass={handlePass}
+                />
               )}
-            </div>
-          </div>
-        </aside>
+            </section>
 
-        {/* Card Stack */}
-        <section className="card-section">
-          {currentProfile && (
-            <ProfileCard
-              profile={currentProfile}
-              onLike={handleLike}
-              onPass={handlePass}
-            />
-          )}
-        </section>
+            {/* Info Section */}
+            <aside className="info-section">
+              <div className="current-user-info">
+                <h3>You</h3>
+                <div className="user-card">
+                  <img src={currentUser.profileImage} alt={currentUser.name} />
+                  <h4>{currentUser.name}</h4>
+                  <p>{currentUser.department}</p>
+                </div>
+              </div>
+            </aside>
+          </>
+        )}
 
-        {/* Info Section */}
-        <aside className="info-section">
-          <div className="current-user-info">
-            <h3>You</h3>
-            <div className="user-card">
-              <img src={currentUser.profileImage} alt={currentUser.name} />
-              <h4>{currentUser.name}</h4>
-              <p>{currentUser.department}</p>
-            </div>
-          </div>
-        </aside>
+        {activeTab === 'messages' && <MessagesPage matches={matches} />}
+        {activeTab === 'profile' && <ProfilePage currentUser={currentUser} />}
       </main>
     </div>
   )

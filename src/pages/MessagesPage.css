@@ -1,0 +1,135 @@
+.messages-page {
+  width: 100%;
+  padding: 32px;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #f0f4f9 0%, #ffffff 100%);
+  min-height: 100%;
+}
+
+.messages-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.messages-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 32px;
+  background-color: var(--background-white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.empty-state p {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.empty-state .subtext {
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.conversations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.conversation-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--background-white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-light);
+}
+
+.conversation-item:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.conversation-item img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-light);
+}
+
+.conversation-info {
+  flex: 1;
+}
+
+.conversation-info h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 4px 0;
+}
+
+.conversation-info p {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.conversation-action {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-message {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-message:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+@media (max-width: 768px) {
+  .messages-page {
+    padding: 16px;
+  }
+
+  .messages-container h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .conversation-item {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .btn-message {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

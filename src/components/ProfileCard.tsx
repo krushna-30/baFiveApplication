@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Heart, X } from 'lucide-react'
+import { Star, X } from 'lucide-react'
 import './ProfileCard.css'
 
 interface Profile {
@@ -14,19 +14,19 @@ interface Profile {
 
 interface ProfileCardProps {
   profile: Profile
-  onLike: () => void
+  onConnect: () => void
   onPass: () => void
 }
 
-export default function ProfileCard({ profile, onLike, onPass }: ProfileCardProps) {
+export default function ProfileCard({ profile, onConnect, onPass }: ProfileCardProps) {
   const [isAnimating, setIsAnimating] = useState(false)
   const [direction, setDirection] = useState<'left' | 'right' | null>(null)
 
-  const handleLike = () => {
+  const handleConnect = () => {
     setIsAnimating(true)
     setDirection('right')
     setTimeout(() => {
-      onLike()
+      onConnect()
       setIsAnimating(false)
       setDirection(null)
     }, 300)
@@ -51,8 +51,15 @@ export default function ProfileCard({ profile, onLike, onPass }: ProfileCardProp
 
         {/* Profile Info Overlay */}
         <div className="profile-info-overlay">
-          <h2>{profile.name}, {profile.age}</h2>
-          <p className="department">{profile.department}</p>
+          <div className="profile-header">
+            <div>
+              <h2>{profile.name}, {profile.age}</h2>
+              <p className="department">{profile.department}</p>
+            </div>
+            <div className="profile-badge">
+              <span>Pro</span>
+            </div>
+          </div>
           <p className="bio">{profile.bio}</p>
 
           {/* Interests */}
@@ -77,18 +84,12 @@ export default function ProfileCard({ profile, onLike, onPass }: ProfileCardProp
         </button>
 
         <button
-          onClick={handleLike}
-          className="btn-action btn-like"
-          title="Like"
+          onClick={handleConnect}
+          className="btn-action btn-connect"
+          title="Connect"
         >
-          <Heart size={28} fill="currentColor" />
+          <Star size={28} fill="currentColor" />
         </button>
-      </div>
-
-      {/* Gradient Hints */}
-      <div className="swipe-hints">
-        <div className="hint hint-left">PASS</div>
-        <div className="hint hint-right">LIKE</div>
       </div>
     </div>
   )

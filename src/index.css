@@ -5,17 +5,22 @@
 }
 
 :root {
-  /* Hinge-inspired color palette */
-  --primary-color: #f5627a; /* Coral red */
-  --primary-light: #ff8fa3;
-  --primary-dark: #e74c63;
-  --background-light: #fafafa;
+  /* Professional office-inspired color palette */
+  --primary-color: #0066cc; /* Professional blue */
+  --primary-light: #4d94ff;
+  --primary-dark: #0052a3;
+  --accent-color: #ff6b35; /* Warm accent for highlights */
+  --success-color: #4caf50;
+  --warning-color: #ffa500;
+  --background-light: #f8f9fa;
   --background-white: #ffffff;
-  --text-dark: #2e2e2e;
+  --text-dark: #1a1a1a;
+  --text-medium: #4a4a4a;
   --text-light: #999999;
-  --border-light: #e8e8e8;
-  --success: #4caf50;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --border-light: #e0e0e0;
+  --border-medium: #d0d0d0;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 body {
@@ -69,5 +74,5 @@ input, textarea {
 input:focus, textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(245, 98, 122, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
 }
