@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useTheme from '../hooks/useTheme';
 import './AnimatedCard.css';
 
@@ -19,11 +19,6 @@ export const AnimatedCard = ({
   delay = 0
 }: AnimatedCardProps) => {
   const theme = useTheme();
-  const [themeGradient, setThemeGradient] = useState(theme.gradient);
-
-  useEffect(() => {
-    setThemeGradient(theme.gradient);
-  }, [theme.gradient]);
 
   return (
     <motion.div
@@ -39,7 +34,7 @@ export const AnimatedCard = ({
       className={`animated-card ${className}`}
       style={{
         perspective: '1200px',
-        background: gradient || themeGradient
+        background: gradient || `linear-gradient(135deg, ${theme.colors.primary1} 0%, ${theme.colors.primary2} 100%)`
       }}
     >
       {children}

@@ -73,17 +73,33 @@ export function useTheme() {
     const saved = localStorage.getItem('selectedTheme') || 'modern-blue'
     setTheme(saved)
     setColors(THEME_COLORS[saved] || THEME_COLORS['modern-blue'])
+    // Apply theme class to document
+    document.documentElement.className = `theme-${saved}`
 
-    // Listen for theme changes
+    // Listen for theme changes from storage events (other tabs/windows)
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === 'selectedTheme' && e.newValue) {
         setTheme(e.newValue)
         setColors(THEME_COLORS[e.newValue] || THEME_COLORS['modern-blue'])
+        document.documentElement.className = `theme-${e.newValue}`
       }
     }
 
+    // Also listen for custom theme-change event (for same-window updates)
+    const handleThemeChange = (e: CustomEvent) => {
+      const newTheme = e.detail
+      setTheme(newTheme)
+      setColors(THEME_COLORS[newTheme] || THEME_COLORS['modern-blue'])
+      document.documentElement.className = `theme-${newTheme}`
+    }
+
     window.addEventListener('storage', handleStorageChange)
-    return () => window.removeEventListener('storage', handleStorageChange)
+    window.addEventListener('theme-change' as any, handleThemeChange)
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+      window.removeEventListener('theme-change' as any, handleThemeChange)
+    }
   }, [])
 
   return {
