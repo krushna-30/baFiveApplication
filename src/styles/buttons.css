@@ -1,4 +1,4 @@
-/* Global Button Styles with 3D Effects */
+/* Global Button Styles with Hinge-inspired surfaces */
 
 .btn,
 button:not([class*="nav"]):not([class*="toggle"]) {
@@ -11,11 +11,11 @@ button:not([class*="nav"]):not([class*="toggle"]) {
   font-size: 15px;
   font-weight: 600;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(17, 24, 39, 0.08);
   text-decoration: none;
   font-family: inherit;
   user-select: none;
@@ -30,12 +30,12 @@ button:disabled {
   transform: none;
 }
 
-/* Primary Button - Vibrant Gradient */
+/* Primary Button - Coral Accent */
 .btn-primary,
 button[type="submit"] {
-  background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #ff5872 0%, #ff2d55 100%);
   color: white;
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(255, 45, 85, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
 }
 
@@ -47,7 +47,7 @@ button[type="submit"]::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
   transition: left 0.5s;
 }
 
@@ -59,34 +59,32 @@ button[type="submit"]:hover:not(:disabled)::before {
 .btn-primary:hover:not(:disabled),
 button[type="submit"]:hover:not(:disabled) {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: 0 14px 30px rgba(255, 45, 85, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .btn-primary:active:not(:disabled),
 button[type="submit"]:active:not(:disabled) {
   transform: translateY(0) scale(0.98);
-  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 45, 85, 0.18), inset 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
-/* Secondary Button - Subtle */
+/* Secondary Button */
 .btn-secondary {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  color: white;
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  color: #111827;
+  border: 1.5px solid rgba(229, 231, 235, 0.9);
+  box-shadow: 0 4px 15px rgba(17, 24, 39, 0.05);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: #f8f5f2;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
 }
 
 .btn-secondary:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.06);
 }
 
 /* Success Button - Green */

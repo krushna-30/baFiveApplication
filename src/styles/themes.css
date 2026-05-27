@@ -1,12 +1,12 @@
 /* Modern Blue Theme - Current Default */
 :root.theme-modern-blue {
-  --primary-gradient: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
-  --primary-dark: #7c3aed;
-  --primary-light: #3b82f6;
-  --card-gradient: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(59, 130, 246, 0.1) 100%);
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --text-primary: #f8fafc;
+  --primary-gradient: linear-gradient(135deg, #ff5872 0%, #ff2d55 100%);
+  --primary-dark: #c11f45;
+  --primary-light: #ff7e93;
+  --card-gradient: linear-gradient(135deg, rgba(255, 88, 114, 0.12) 0%, rgba(255, 45, 85, 0.06) 100%);
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f5f2;
+  --text-primary: #111827;
 }
 
 /* Vibrant Neon Theme */
