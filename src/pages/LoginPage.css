@@ -1,4 +1,4 @@
-.login-container {
+﻿.login-container {
   width: 100%;
   min-height: calc(100vh - 64px);
   display: flex;
@@ -280,7 +280,6 @@
   cursor: not-allowed;
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
   .login-container {
     padding: 16px;
