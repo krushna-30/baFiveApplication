@@ -1,15 +1,15 @@
 .profile-card {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  min-height: 620px;
+  max-width: 380px;
+  min-height: 560px;
   background: #ffffff;
-  border-radius: 32px;
-  box-shadow: 0 28px 90px rgba(31, 31, 42, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(26, 26, 26, 0.12);
   overflow: hidden;
   animation: cardEnter 0.4s ease-out;
   transform-style: preserve-3d;
-  border: 1px solid rgba(255, 45, 85, 0.12);
+  border: 1px solid #e8e8e8;
 }
 
 @keyframes cardEnter {
@@ -73,8 +73,8 @@
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 243, 247, 0.75) 55%,
-    rgba(255, 255, 255, 0.96) 100%
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 1) 100%
   );
   pointer-events: none;
 }
@@ -85,51 +85,52 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 32px 24px 24px;
-  color: #1f1f2a;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.98) 100%);
+  padding: 24px 20px 16px;
+  color: #1a1a1a;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 .profile-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .profile-header h2 {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 600;
   margin: 0;
   line-height: 1.2;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.2px;
 }
 
 .profile-badge {
-  background-color: #ff3b64;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
+  background-color: #1a1a1a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
   color: white;
+  letter-spacing: 0.4px;
 }
 
 .profile-info-overlay .department {
-  font-size: 12px;
-  font-weight: 700;
-  color: #6f7289;
-  margin: 0 0 12px 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666666;
+  margin: 0 0 8px 0;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.4px;
 }
 
 .profile-info-overlay .bio {
-  font-size: 14px;
-  line-height: 1.65;
-  color: #4b4c63;
-  margin: 0 0 16px 0;
-  max-height: 100px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666666;
+  margin: 0 0 12px 0;
+  max-height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 400;
@@ -139,29 +140,30 @@
 .interests {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .interest-tag {
   display: inline-block;
-  padding: 8px 14px;
-  background: rgba(255, 77, 110, 0.12);
-  border: 1px solid rgba(255, 77, 110, 0.2);
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #c72b57;
+  padding: 6px 10px;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #666666;
   cursor: default;
 }
 
 /* Action Buttons */
 .card-actions {
   position: absolute;
-  bottom: 24px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 28px;
+  gap: 20px;
   z-index: 10;
 }
 
@@ -169,53 +171,53 @@
   content: '';
   position: absolute;
   inset: -14px;
-  background: radial-gradient(circle at center, rgba(255, 77, 110, 0.18), transparent 45%);
+  background: none;
   border-radius: 999px;
   z-index: -1;
 }
 
 .btn-action {
-  width: 70px;
-  height: 70px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1px solid rgba(255, 45, 85, 0.14);
+  border: 1px solid #e0e0e0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 14px 32px rgba(255, 45, 85, 0.14);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.1);
+  transition: all 0.2s ease;
   transform: translateY(0);
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .btn-action:hover {
-  transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 18px 40px rgba(255, 45, 85, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.12);
+  background: #f9f9f9;
 }
 
 .btn-action:active {
-  transform: translateY(-1px) scale(0.95);
-  box-shadow: 0 6px 16px rgba(255, 45, 85, 0.16);
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(26, 26, 26, 0.08);
 }
 
 .btn-pass {
-  color: #ef4444;
+  color: #999999;
 }
 
 .btn-pass:hover {
-  background: linear-gradient(135deg, #fff5f7 0%, #fef1f5 100%);
-  color: #dc2626;
+  color: #666666;
 }
 
 .btn-connect {
-  color: #ff3b64;
+  color: #1a1a1a;
 }
 
 .btn-connect:hover {
-  background: linear-gradient(135deg, #fff1f5 0%, #ffe6ed 100%);
-  color: #d81d4c;
+  color: #1a1a1a;
+  background: #efefef;
 }
 
 /* Responsive */
@@ -223,24 +225,26 @@
   .profile-card {
     max-width: 100%;
     height: 100%;
-    border-radius: 24px;
+    border-radius: 0;
+    min-height: 480px;
   }
 
   .card-actions {
-    bottom: 32px;
-    gap: 24px;
+    bottom: 16px;
+    gap: 16px;
   }
 
   .btn-action {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
   }
 
   .profile-info-overlay {
-    padding: 24px 20px 20px;
+    padding: 20px 16px 12px;
   }
 
   .profile-header h2 {
-    font-size: 24px;
+    font-size: 18px;
   }
 }
