@@ -1,5 +1,18 @@
 /* Extended theme styles that apply to all components */
 
+/* Hinge theme button style */
+.theme-hinge .btn-primary,
+.theme-hinge button[type="submit"] {
+  background: #1a1a1a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.12);
+}
+
+.theme-hinge .btn-primary:hover,
+.theme-hinge button[type="submit"]:hover {
+  background: #2a2a2a;
+}
+
 /* Apply primary gradient to buttons */
 .theme-modern-blue .btn-primary,
 .theme-modern-blue button[type="submit"] {

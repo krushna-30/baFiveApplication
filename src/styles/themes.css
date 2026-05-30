@@ -1,4 +1,15 @@
-/* Modern Blue Theme - Current Default */
+/* Hinge - Minimalist Theme (Default) */
+:root.theme-hinge {
+  --primary-gradient: linear-gradient(135deg, #1a1a1a 0%, #ffffff 100%);
+  --primary-dark: #1a1a1a;
+  --primary-light: #ffffff;
+  --card-gradient: none;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #1a1a1a;
+}
+
+/* Modern Blue Theme */
 :root.theme-modern-blue {
   --primary-gradient: linear-gradient(135deg, #ff5872 0%, #ff2d55 100%);
   --primary-dark: #c11f45;

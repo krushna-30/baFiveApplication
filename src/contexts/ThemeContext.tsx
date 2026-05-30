@@ -15,6 +15,12 @@ interface ThemeContextType {
 }
 
 const THEME_COLORS: Record<string, ThemeColors> = {
+  'hinge': {
+    primary1: '#1a1a1a',
+    primary2: '#ffffff',
+    background: '#ffffff',
+    text: '#1a1a1a'
+  },
   'modern-blue': {
     primary1: '#7c3aed',
     primary2: '#3b82f6',
@@ -74,19 +80,19 @@ const THEME_COLORS: Record<string, ThemeColors> = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<string>('modern-blue')
-  const [colors, setColors] = useState<ThemeColors>(THEME_COLORS['modern-blue'])
+  const [theme, setThemeState] = useState<string>('hinge')
+  const [colors, setColors] = useState<ThemeColors>(THEME_COLORS['hinge'])
 
   // Initialize from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('selectedTheme') || 'modern-blue'
+    const saved = localStorage.getItem('selectedTheme') || 'hinge'
     setThemeState(saved)
-    setColors(THEME_COLORS[saved] || THEME_COLORS['modern-blue'])
+    setColors(THEME_COLORS[saved] || THEME_COLORS['hinge'])
     document.documentElement.className = `theme-${saved}`
   }, [])
 
   const setTheme = (newTheme: string) => {
-    const themeToSet = THEME_COLORS[newTheme] ? newTheme : 'modern-blue'
+    const themeToSet = THEME_COLORS[newTheme] ? newTheme : 'hinge'
     setThemeState(themeToSet)
     setColors(THEME_COLORS[themeToSet])
     localStorage.setItem('selectedTheme', themeToSet)
